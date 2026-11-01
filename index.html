@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172554">
+  <meta name="description" content="Ведомость остатков ночной логистики по отделам">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Ночная логистика</title>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand-mark">НЛ</div>
+      <div>
+        <h1>Ночная логистика</h1>
+        <p>Остатки по отделам на конец смены</p>
+      </div>
+    </header>
+
+    <section class="summary" aria-live="polite">
+      <div class="summary-item"><span>Приход</span><strong id="totalIncoming">0</strong></div>
+      <div class="summary-item"><span>Отзывы</span><strong id="totalReturns">0</strong></div>
+      <div class="summary-item total"><span>Всего</span><strong id="totalAll">0</strong></div>
+    </section>
+
+    <section class="section-head">
+      <div>
+        <h2>Остатки по отделам</h2>
+        <p>Вводи фактическое количество «наших» паллет</p>
+      </div>
+      <button class="small-button" id="clearButton" type="button">Очистить</button>
+    </section>
+
+    <section id="departments" class="departments" aria-label="Отделы"></section>
+
+    <section class="report-panel">
+      <div class="report-head">
+        <div>
+          <h2>Сообщение в рабочий чат</h2>
+          <p>Отделы с нулевыми остатками по умолчанию не включаются.</p>
+        </div>
+      </div>
+      <label class="toggle-row">
+        <input type="checkbox" id="includeZero">
+        <span>Показывать отделы без остатков</span>
+      </label>
+      <textarea id="report" readonly placeholder="Отчёт появится здесь после ввода данных"></textarea>
+      <button id="copyButton" class="primary-button" type="button">Скопировать отчёт</button>
+      <p id="copyStatus" class="status" role="status"></p>
+    </section>
+
+    <footer>
+      <span>Данные сохраняются на этом устройстве автоматически.</span>
+      <span>Без аккаунта и сервера.</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
